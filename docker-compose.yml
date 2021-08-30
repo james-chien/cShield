@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  node:
+    build:
+      context: ./
+    image: cshield/node
+    container_name: web_node
+    restart: always
+    ports:
+      - 3000:3000
+    volumes:
+      - ./:/usr/src/app
+      - /usr/src/app/node_modules
+    environment:
+      - VIRTUAL_HOST=cshield.org
+      - VIRTUAL_PORT=3000
+      - LETSENCRYPT_HOST=cshield.org
+      - LETSENCRYPT_EMAIL=cshieldsec@gmail.com
+    networks:
+      - webapp
+
+networks:
+  webapp:
+    name: webapp
+    driver: bridge
