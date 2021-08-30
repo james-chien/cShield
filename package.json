@@ -14,7 +14,7 @@
     "prei18n:extract": "touch src/locales/en-US.po",
     "deploy": "vercel --prod --force",
     "docker:nginx": "docker-compose -f docker-compose-nginx.yml up -d",
-    "docker": "yarn telemetry:disable && yarn build && NODE_ENV=production docker-compose up -d",
+    "docker": "yarn build && NODE_ENV=production docker-compose up -d",
     "docker:restart": "docker-compose restart",
     "docker:clear": "docker-compose down -v && docker-compose rm -sfv",
     "docker:reset": "yarn docker:clear && yarn docker",
